@@ -55,24 +55,8 @@ func resourceDatadogMonitor() *schema.Resource {
 
 			// Options
 			"thresholds": {
-				Type:     schema.TypeMap,
-				Optional: true,
-				Elem: &schema.Resource{
-					Schema: map[string]*schema.Schema{
-						"ok": {
-							Type:     schema.TypeFloat,
-							Optional: true,
-						},
-						"warning": {
-							Type:     schema.TypeFloat,
-							Optional: true,
-						},
-						"critical": {
-							Type:     schema.TypeFloat,
-							Optional: true,
-						},
-					},
-				},
+				Type:             schema.TypeMap,
+				Optional:         true,
 				DiffSuppressFunc: suppressDataDogFloatIntDiff,
 			},
 			"notify_no_data": {
